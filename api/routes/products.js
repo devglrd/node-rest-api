@@ -124,7 +124,6 @@ router.delete('/:productId', (req, res, next) => {
             error: err
         })
     });
-
 });
 
 module.exports = router;
