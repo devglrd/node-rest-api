@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const Product = require('../models/products');
+const LOCAL_ADDRESS = "http://localhost:3000/";
 
 router.get('/', (req, res, next) => {
     Product.find()
@@ -17,7 +18,7 @@ router.get('/', (req, res, next) => {
                     _id : doc._id,
                     request : {
                         type : "GET",
-                        url : 'http://localhost:3000/products/'+ doc._id
+                        url : LOCAL_ADDRESS +'products/'+ doc._id
                     }
                 }
             })
@@ -54,7 +55,7 @@ router.post('/', (req, res, next) => {
                 _id : result._id,
                 request : {
                     type : 'POST',
-                    showProductUrl : 'http://localhost:3000/products/' + result._id
+                    showProductUrl : LOCAL_ADDRESS + 'products/' + result._id
                 }
             }
         })
